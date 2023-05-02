@@ -14,15 +14,19 @@ WHERE first_name IN ('Irena','Vidya','Maya');
 -- 2)
 SELECT *
 FROM employees
-WHERE first_name = 'Irena' OR 'Vidya' OR 'Maya';
--- numbers of top three results = 10397, 10610, 10821
+WHERE first_name = 'Irena' 
+OR first_name = 'Vidya' 
+OR first_name = 'Maya';
+-- numbers of top three results = 10200, 10397, 10610
 
 -- 3)
 SELECT *
 FROM employees
-WHERE first_name = 'Irena' OR 'Vidya' OR 'Maya'
+WHERE (first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name = 'Maya')
 	AND gender = 'M';
--- numbers of top three results = 10397, 10610, 10821
+-- numbers of top three results = 10200, 10397, 10821
 
 -- 4)
 SELECT DISTINCT *
@@ -30,45 +34,48 @@ FROM employees
 WHERE last_name LIKE 'E%';
 
 -- 5)
-SELECT DISTINCT *
+SELECT DISTINCT last_name
 FROM employees
-WHERE last_name LIKE 'E%' OR last_name LIKE'%E';
+WHERE last_name LIKE 'E%' 
+	OR last_name LIKE '%E';
 
 -- 6)
 SELECT DISTINCT last_name
 FROM employees
-WHERE last_name LIKE '%E' AND last_name NOT LIKE 'E%';
+WHERE last_name NOT LIKE 'E%' 
+	AND last_name LIKE '%E';
 
 -- 7)
 SELECT DISTINCT last_name
 FROM employees
-WHERE last_name LIKE '%E' AND last_name LIKE 'E%';
+WHERE last_name LIKE 'E%E';
 
 -- 8)
 SELECT *
 FROM employees
-WHERE hire_date BETWEEN "1990-01-01" AND "1999-12-31";
+WHERE hire_date LIKE "199%";
 -- first three ids = 100008,10011,10012
 
 -- 9)
 SELECT *
 FROM employees
-WHERE MONTH(birth_date) = 12 AND DAY(birth_date) = 25;
+WHERE birth_date LIKE '%12-25%';
 -- first three ids = 10078, 10115, 10261
 
 -- 10)
 SELECT *
 FROM employees
-WHERE hire_date BETWEEN "1990-01-01" AND "1999-12-31"
-	AND MONTH(birth_date) = 12 AND DAY(birth_date) = 25;
+WHERE birth_date LIKE '%12-25%'
+	AND hire_date LIKE "199%";
 -- first three ids = 10261,10438,10681
 
 -- 11)
-SELECT DISTINCT *
+SELECT DISTINCT last_name
 FROM employees
 WHERE last_name LIKE '%q%';
 
 -- 12)
-SELECT DISTINCT *
+SELECT DISTINCT last_name
 FROM employees
-WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%';
+WHERE last_name LIKE '%q%' 
+	AND last_name NOT LIKE '%qu%';
