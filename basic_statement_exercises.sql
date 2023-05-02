@@ -19,9 +19,42 @@ WHERE name LIKE "Sgt. Pepper's%";
 SELECT name, genre
 FROM albums
 WHERE name = "Nevermind";
--- 8) grunge, alternative rock
+-- 7) grunge, alternative rock
 
-SELECT name AS low_selling_albums, sales
+SELECT name
+FROM albums
+WHERE release_date BETWEEN 1989 AND 1999;
+/*
+8)
+'The Bodyguard'
+'Jagged Little Pill'
+'Come On Over'
+'Falling into You'
+'Let\'s Talk About Love'
+'Dangerous'
+'The Immaculate Collection'
+'Titanic: Music from the Motion Picture'
+'Metallica'
+'Nevermind'
+'Supernatural'
+*/
+
+SELECT name AS low_selling_albums
 FROM albums
 WHERE sales < 20;
--- 9) see output for low_selling_album list
+/*
+9) 
+'Grease: The Original Soundtrack from the Motion Picture'
+'Bad'
+'Sgt. Pepper\'s Lonely Hearts Club Band'
+'Dirty Dancing'
+'Let\'s Talk About Love'
+'Dangerous'
+'The Immaculate Collection'
+'Abbey Road'
+'Born in the U.S.A.'
+'Brothers in Arms'
+'Titanic: Music from the Motion Picture'
+'Nevermind'
+'The Wall'
+*/
