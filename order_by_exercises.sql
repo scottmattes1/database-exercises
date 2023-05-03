@@ -12,7 +12,7 @@ FROM employees;
 SELECT *
 FROM employees
 WHERE first_name IN ('Irena','Vidya','Maya')
-ORDER BY first_name;
+ORDER BY first_name DESC;
 -- first result = Irena Reutenauer
 -- last result = Vidya Quittner
 
@@ -22,7 +22,7 @@ FROM employees
 WHERE first_name IN ('Irena','Vidya','Maya')
 ORDER BY first_name DESC, last_name DESC;
 -- first result = Irena Acton
--- last result = Vidya Zwezig
+-- last result = Vidya Zweizig
 
 -- 4)
 SELECT *
