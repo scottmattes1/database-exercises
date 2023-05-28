@@ -62,6 +62,7 @@ WHERE dm.to_date LIKE "9999%" AND e.gender = 'F'
 ORDER BY dept_name;
 
 -- 4)
+USE employees;
 SELECT t.title, COUNT(t.emp_no) count
 FROM titles t
 JOIN dept_emp de ON de.emp_no = t.emp_no
