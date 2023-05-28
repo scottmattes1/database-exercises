@@ -58,3 +58,5 @@ WHERE sales < 20;
 'Nevermind'
 'The Wall'
 */
+
+DESCRIBE albums;
